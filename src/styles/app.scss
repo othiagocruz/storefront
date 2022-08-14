@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@layer base {
+  #curtain {
+    @apply absolute left-0 transition-transform -translate-y-full ease-linear 
+           duration-1000 origin-top bg-black top-0 w-full h-full;
+  }
+}
+@tailwind utilities;
+@layer utilities {
+  h1 {
+    @apply relative z-10 text-white mix-blend-difference;
+  }
+  input[type="number"] {
+    @apply border-none outline-hidden focus:border-none select-none focus:ring-0 focus:outline-hidden 
+					 mix-blend-overlay p-0 absolute top-0 left-0 caret-transparent text-transparent duration-1000
+					 z-20 leading-none w-screen h-screen text-center bg-transparent;
+  }
+  html {
+    @apply font-kepler font-bold text-9xl md:text-[24rem] leading-3 text-center m-0 p-0 w-screen h-screen;
+  }
+  body {
+    @apply w-screen h-screen flex items-center justify-center m-0 p-0 transition-colors overflow-hidden bg-white;
+  }
+}
