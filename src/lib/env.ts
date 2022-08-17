@@ -1,0 +1,2 @@
+export const VITE_COGNITO_USER_POOL_ID = import.meta.env.VITE_COGNITO_USER_POOL_ID;
+export const VITE_COGNITO_APP_CLIENT_ID = import.meta.env.VITE_COGNITO_APP_CLIENT_ID;

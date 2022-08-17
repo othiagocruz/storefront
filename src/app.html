@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width" />
     %sveltekit.head%
   </head>
+  <script>
+    const isBrowser = () => typeof window !== "undefined";
+    const isGlobal = () => typeof global !== "undefined";
+    var exports = {};
+    if (!isGlobal() && isBrowser()) {
+      var global = window;
+    }
+  </script>
   <body>
     <div>%sveltekit.body%</div>
   </body>
