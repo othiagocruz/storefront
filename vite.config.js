@@ -7,7 +7,12 @@ const config = {
   define: {
     "process.env": process.env
   },
-  plugins: [sveltekit()]
+  plugins: [sveltekit()],
+  resolve: {
+    alias: {
+      "./runtimeConfig": "./runtimeConfig.browser"
+    }
+  }
 };
 
 export default config;
