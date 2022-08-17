@@ -1,10 +1,10 @@
 <script type="ts">
   import { goto } from "$app/navigation";
   import { getErrorMessage } from "$lib/error";
+  import { _username } from "$lib/stores";
   import { Auth } from "aws-amplify";
-  import { getContext } from "svelte";
   let code = "";
-  let username: string = getContext("user");
+  let username: string = $_username;
   let posting = false;
   let _error = "";
   async function confirmSignUp() {

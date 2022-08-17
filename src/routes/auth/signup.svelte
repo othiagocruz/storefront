@@ -1,9 +1,9 @@
 <script type="ts">
   import { goto } from "$app/navigation";
   import { getErrorMessage } from "$lib/error";
-  import { setContext } from "svelte";
 
   import { Auth } from "aws-amplify";
+  import { _username } from "$lib/stores";
 
   let username = "";
   let password = "";
@@ -26,7 +26,7 @@
           enabled: true
         }
       });
-      setContext("user", username);
+      _username.set(username);
       posting = false;
       goto("/auth/confirm");
     } catch (error) {
