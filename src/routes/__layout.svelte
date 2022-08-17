@@ -1,7 +1,7 @@
 <script context="module">
   import "$lib/styles/app.scss";
   import { Amplify } from "aws-amplify";
-  import awsExports from "../aws-exports";
+  import { awsExports } from "$lib/env";
   Amplify.configure({ ...awsExports, ssr: true });
 </script>
 
