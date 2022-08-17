@@ -2,7 +2,6 @@
   import { goto } from "$app/navigation";
   import { withSSRContext } from "aws-amplify";
   const { Auth } = withSSRContext();
-  let promise = Auth.currentAuthenticatedUser();
 
   async function signOut() {
     try {
@@ -16,7 +15,7 @@
 
 <h1>Storefront</h1>
 <nav>
-  {#await promise}
+  {#await Auth.currentAuthenticatedUser()}
     <p>loading...</p>
   {:then user}
     <p>

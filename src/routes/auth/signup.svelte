@@ -1,15 +1,20 @@
 <script type="ts">
   import { goto } from "$app/navigation";
+  import { getErrorMessage } from "$lib/error";
+  import { setContext } from "svelte";
 
   import { Auth } from "aws-amplify";
 
   let username = "";
   let password = "";
   let email = "";
+  let posting = false;
+  let _error = "";
 
   async function handleSubmit() {
+    posting = true;
     try {
-      const { user } = await Auth.signUp({
+      await Auth.signUp({
         username,
         password,
         attributes: {
@@ -21,21 +26,41 @@
           enabled: true
         }
       });
-      console.log(user);
+      setContext("user", username);
+      posting = false;
       goto("/auth/confirm");
     } catch (error) {
-      console.log("error signing up:", error);
+      posting = false;
+      _error = getErrorMessage(error);
     }
   }
 </script>
 
 <h1>Storefront</h1>
-<form class="flex flex-col gap-4 max-w-screen-sm mx-auto" on:submit|preventDefault={handleSubmit}>
-  <h2>Sign up for free! You will receive an e-mail with a confirmation code.</h2>
-  <input type="text" bind:value={username} id="username" placeholder="username" />
-  <input type="email" bind:value={email} id="email" placeholder="email" />
-  <input type="password" bind:value={password} id="password" placeholder="password" />
-  <button class="bg-black text-white p-4">Submit</button>
+
+<p class="max-w-[220px] leading-snug">
+  Sign up for free! You will receive an e-mail with a confirmation code.
+</p>
+<form class="flex flex-col gap-4 w-min mx-auto mt-6" on:submit|preventDefault={handleSubmit}>
+  <input
+    type="text"
+    bind:value={username}
+    id="username"
+    placeholder="username"
+    disabled={posting}
+  />
+  <input type="email" bind:value={email} id="email" placeholder="email" disabled={posting} />
+  <input
+    type="password"
+    bind:value={password}
+    id="password"
+    disabled={posting}
+    placeholder="password"
+  />
+  {#if _error}
+    <p class="text-red-600">{_error}</p>
+  {/if}
+  <button class="bg-black text-white p-4" disabled={posting}>Submit</button>
 </form>
 
 <nav class="mt-6">
