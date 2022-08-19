@@ -1,17 +1,14 @@
 <script lang="ts">
 	import { useQuery, useQueryClient } from '@sveltestack/svelte-query';
-	import { request } from 'graphql-request';
-	import ProductsQql from '$lib/graphql/products.graphql?raw';
 	import type { ProductsQuery } from '$lib/generated/graphql';
-	import { HASURA_GRAPHQL_ENDPOINT } from '$lib/env';
+	import { products as api } from '$lib/api/products';
 
 	export let initialData: ProductsQuery['products'];
 
 	$: query = useQuery<ProductsQuery['products'], { message: string }>(
 		'products',
 		async () => {
-			const { products } = await request(HASURA_GRAPHQL_ENDPOINT, ProductsQql);
-
+			const { products } = await api();
 			return products;
 		},
 		{ initialData }
@@ -43,7 +40,6 @@
 					</p>
 				{/each}
 			</div>
-			<div>{$query.isFetching ? 'Background Updating...' : ' '}</div>
 		{/if}
 	</div>
 </div>

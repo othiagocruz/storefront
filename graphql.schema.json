@@ -2457,6 +2457,144 @@
 			},
 			{
 				"kind": "OBJECT",
+				"name": "money_result",
+				"description": "columns and relationships of \"money_result\"",
+				"fields": [
+					{
+						"name": "result",
+						"description": null,
+						"args": [],
+						"type": {
+							"kind": "SCALAR",
+							"name": "money",
+							"ofType": null
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					}
+				],
+				"inputFields": null,
+				"interfaces": [],
+				"enumValues": null,
+				"possibleTypes": null
+			},
+			{
+				"kind": "INPUT_OBJECT",
+				"name": "money_result_bool_exp",
+				"description": "Boolean expression to filter rows from the table \"money_result\". All fields are combined with a logical 'AND'.",
+				"fields": null,
+				"inputFields": [
+					{
+						"name": "_and",
+						"description": null,
+						"type": {
+							"kind": "LIST",
+							"name": null,
+							"ofType": {
+								"kind": "NON_NULL",
+								"name": null,
+								"ofType": {
+									"kind": "INPUT_OBJECT",
+									"name": "money_result_bool_exp",
+									"ofType": null
+								}
+							}
+						},
+						"defaultValue": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "_not",
+						"description": null,
+						"type": {
+							"kind": "INPUT_OBJECT",
+							"name": "money_result_bool_exp",
+							"ofType": null
+						},
+						"defaultValue": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "_or",
+						"description": null,
+						"type": {
+							"kind": "LIST",
+							"name": null,
+							"ofType": {
+								"kind": "NON_NULL",
+								"name": null,
+								"ofType": {
+									"kind": "INPUT_OBJECT",
+									"name": "money_result_bool_exp",
+									"ofType": null
+								}
+							}
+						},
+						"defaultValue": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "result",
+						"description": null,
+						"type": {
+							"kind": "INPUT_OBJECT",
+							"name": "money_comparison_exp",
+							"ofType": null
+						},
+						"defaultValue": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					}
+				],
+				"interfaces": null,
+				"enumValues": null,
+				"possibleTypes": null
+			},
+			{
+				"kind": "INPUT_OBJECT",
+				"name": "money_result_order_by",
+				"description": "Ordering options when selecting data from \"money_result\".",
+				"fields": null,
+				"inputFields": [
+					{
+						"name": "result",
+						"description": null,
+						"type": {
+							"kind": "ENUM",
+							"name": "order_by",
+							"ofType": null
+						},
+						"defaultValue": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					}
+				],
+				"interfaces": null,
+				"enumValues": null,
+				"possibleTypes": null
+			},
+			{
+				"kind": "ENUM",
+				"name": "money_result_select_column",
+				"description": "select columns of table \"money_result\"",
+				"fields": null,
+				"inputFields": null,
+				"interfaces": null,
+				"enumValues": [
+					{
+						"name": "result",
+						"description": "column name",
+						"isDeprecated": false,
+						"deprecationReason": null
+					}
+				],
+				"possibleTypes": null
+			},
+			{
+				"kind": "OBJECT",
 				"name": "mutation_root",
 				"description": "mutation root",
 				"fields": [
@@ -3276,7 +3414,7 @@
 			{
 				"kind": "OBJECT",
 				"name": "products_aggregate",
-				"description": "aggregated selection of \"products\"",
+				"description": null,
 				"fields": [
 					{
 						"name": "aggregate",
@@ -3501,149 +3639,6 @@
 				"possibleTypes": null
 			},
 			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_aggregate_order_by",
-				"description": "order by aggregate values of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "avg",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_avg_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "count",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "max",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_max_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "min",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_min_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "stddev",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_stddev_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "stddev_pop",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_stddev_pop_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "stddev_samp",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_stddev_samp_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "sum",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_sum_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "var_pop",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_var_pop_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "var_samp",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_var_samp_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "variance",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_variance_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
 				"kind": "OBJECT",
 				"name": "products_avg_fields",
 				"description": "aggregate avg on columns",
@@ -3663,29 +3658,6 @@
 				],
 				"inputFields": null,
 				"interfaces": [],
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_avg_order_by",
-				"description": "order by avg() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
 				"enumValues": null,
 				"possibleTypes": null
 			},
@@ -3932,89 +3904,6 @@
 				"possibleTypes": null
 			},
 			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_max_order_by",
-				"description": "order by max() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "created_at",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "id",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "image",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "name",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "updated_at",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
 				"kind": "OBJECT",
 				"name": "products_min_fields",
 				"description": "aggregate min on columns",
@@ -4094,89 +3983,6 @@
 				],
 				"inputFields": null,
 				"interfaces": [],
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_min_order_by",
-				"description": "order by min() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "created_at",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "id",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "image",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "name",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "updated_at",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
 				"enumValues": null,
 				"possibleTypes": null
 			},
@@ -4358,29 +4164,6 @@
 				"possibleTypes": null
 			},
 			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_stddev_order_by",
-				"description": "order by stddev() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
 				"kind": "OBJECT",
 				"name": "products_stddev_pop_fields",
 				"description": "aggregate stddev_pop on columns",
@@ -4400,29 +4183,6 @@
 				],
 				"inputFields": null,
 				"interfaces": [],
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_stddev_pop_order_by",
-				"description": "order by stddev_pop() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
 				"enumValues": null,
 				"possibleTypes": null
 			},
@@ -4450,29 +4210,6 @@
 				"possibleTypes": null
 			},
 			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_stddev_samp_order_by",
-				"description": "order by stddev_samp() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
 				"kind": "OBJECT",
 				"name": "products_sum_fields",
 				"description": "aggregate sum on columns",
@@ -4492,29 +4229,6 @@
 				],
 				"inputFields": null,
 				"interfaces": [],
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_sum_order_by",
-				"description": "order by sum() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
 				"enumValues": null,
 				"possibleTypes": null
 			},
@@ -4542,29 +4256,6 @@
 				"possibleTypes": null
 			},
 			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_var_pop_order_by",
-				"description": "order by var_pop() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
 				"kind": "OBJECT",
 				"name": "products_var_samp_fields",
 				"description": "aggregate var_samp on columns",
@@ -4588,29 +4279,6 @@
 				"possibleTypes": null
 			},
 			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_var_samp_order_by",
-				"description": "order by var_samp() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
 				"kind": "OBJECT",
 				"name": "products_variance_fields",
 				"description": "aggregate variance on columns",
@@ -4630,29 +4298,6 @@
 				],
 				"inputFields": null,
 				"interfaces": [],
-				"enumValues": null,
-				"possibleTypes": null
-			},
-			{
-				"kind": "INPUT_OBJECT",
-				"name": "products_variance_order_by",
-				"description": "order by variance() on columns of table \"products\"",
-				"fields": null,
-				"inputFields": [
-					{
-						"name": "amount",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					}
-				],
-				"interfaces": null,
 				"enumValues": null,
 				"possibleTypes": null
 			},
@@ -4912,6 +4557,402 @@
 							"kind": "OBJECT",
 							"name": "cart",
 							"ofType": null
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "cart_items",
+						"description": "execute function \"cart_items\" which returns \"products\"",
+						"args": [
+							{
+								"name": "distinct_on",
+								"description": "distinct select on columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "ENUM",
+											"name": "products_select_column",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "limit",
+								"description": "limit the number of rows returned",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "offset",
+								"description": "skip the first n rows. Use only with order_by",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "order_by",
+								"description": "sort the rows by one or more columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "INPUT_OBJECT",
+											"name": "products_order_by",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "where",
+								"description": "filter the rows returned",
+								"type": {
+									"kind": "INPUT_OBJECT",
+									"name": "products_bool_exp",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							}
+						],
+						"type": {
+							"kind": "NON_NULL",
+							"name": null,
+							"ofType": {
+								"kind": "LIST",
+								"name": null,
+								"ofType": {
+									"kind": "NON_NULL",
+									"name": null,
+									"ofType": {
+										"kind": "OBJECT",
+										"name": "products",
+										"ofType": null
+									}
+								}
+							}
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "cart_items_aggregate",
+						"description": "execute function \"cart_items\" and query aggregates on result of table type \"products\"",
+						"args": [
+							{
+								"name": "distinct_on",
+								"description": "distinct select on columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "ENUM",
+											"name": "products_select_column",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "limit",
+								"description": "limit the number of rows returned",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "offset",
+								"description": "skip the first n rows. Use only with order_by",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "order_by",
+								"description": "sort the rows by one or more columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "INPUT_OBJECT",
+											"name": "products_order_by",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "where",
+								"description": "filter the rows returned",
+								"type": {
+									"kind": "INPUT_OBJECT",
+									"name": "products_bool_exp",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							}
+						],
+						"type": {
+							"kind": "NON_NULL",
+							"name": null,
+							"ofType": {
+								"kind": "OBJECT",
+								"name": "products_aggregate",
+								"ofType": null
+							}
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "cart_total",
+						"description": "execute function \"cart_total\" which returns \"money_result\"",
+						"args": [
+							{
+								"name": "distinct_on",
+								"description": "distinct select on columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "ENUM",
+											"name": "money_result_select_column",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "limit",
+								"description": "limit the number of rows returned",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "offset",
+								"description": "skip the first n rows. Use only with order_by",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "order_by",
+								"description": "sort the rows by one or more columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "INPUT_OBJECT",
+											"name": "money_result_order_by",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "where",
+								"description": "filter the rows returned",
+								"type": {
+									"kind": "INPUT_OBJECT",
+									"name": "money_result_bool_exp",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							}
+						],
+						"type": {
+							"kind": "NON_NULL",
+							"name": null,
+							"ofType": {
+								"kind": "LIST",
+								"name": null,
+								"ofType": {
+									"kind": "NON_NULL",
+									"name": null,
+									"ofType": {
+										"kind": "OBJECT",
+										"name": "money_result",
+										"ofType": null
+									}
+								}
+							}
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "money_result",
+						"description": "fetch data from the table: \"money_result\"",
+						"args": [
+							{
+								"name": "distinct_on",
+								"description": "distinct select on columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "ENUM",
+											"name": "money_result_select_column",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "limit",
+								"description": "limit the number of rows returned",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "offset",
+								"description": "skip the first n rows. Use only with order_by",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "order_by",
+								"description": "sort the rows by one or more columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "INPUT_OBJECT",
+											"name": "money_result_order_by",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "where",
+								"description": "filter the rows returned",
+								"type": {
+									"kind": "INPUT_OBJECT",
+									"name": "money_result_bool_exp",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							}
+						],
+						"type": {
+							"kind": "NON_NULL",
+							"name": null,
+							"ofType": {
+								"kind": "LIST",
+								"name": null,
+								"ofType": {
+									"kind": "NON_NULL",
+									"name": null,
+									"ofType": {
+										"kind": "OBJECT",
+										"name": "money_result",
+										"ofType": null
+									}
+								}
+							}
 						},
 						"isDeprecated": false,
 						"deprecationReason": null
@@ -5531,6 +5572,402 @@
 							"kind": "OBJECT",
 							"name": "cart",
 							"ofType": null
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "cart_items",
+						"description": "execute function \"cart_items\" which returns \"products\"",
+						"args": [
+							{
+								"name": "distinct_on",
+								"description": "distinct select on columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "ENUM",
+											"name": "products_select_column",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "limit",
+								"description": "limit the number of rows returned",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "offset",
+								"description": "skip the first n rows. Use only with order_by",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "order_by",
+								"description": "sort the rows by one or more columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "INPUT_OBJECT",
+											"name": "products_order_by",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "where",
+								"description": "filter the rows returned",
+								"type": {
+									"kind": "INPUT_OBJECT",
+									"name": "products_bool_exp",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							}
+						],
+						"type": {
+							"kind": "NON_NULL",
+							"name": null,
+							"ofType": {
+								"kind": "LIST",
+								"name": null,
+								"ofType": {
+									"kind": "NON_NULL",
+									"name": null,
+									"ofType": {
+										"kind": "OBJECT",
+										"name": "products",
+										"ofType": null
+									}
+								}
+							}
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "cart_items_aggregate",
+						"description": "execute function \"cart_items\" and query aggregates on result of table type \"products\"",
+						"args": [
+							{
+								"name": "distinct_on",
+								"description": "distinct select on columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "ENUM",
+											"name": "products_select_column",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "limit",
+								"description": "limit the number of rows returned",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "offset",
+								"description": "skip the first n rows. Use only with order_by",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "order_by",
+								"description": "sort the rows by one or more columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "INPUT_OBJECT",
+											"name": "products_order_by",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "where",
+								"description": "filter the rows returned",
+								"type": {
+									"kind": "INPUT_OBJECT",
+									"name": "products_bool_exp",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							}
+						],
+						"type": {
+							"kind": "NON_NULL",
+							"name": null,
+							"ofType": {
+								"kind": "OBJECT",
+								"name": "products_aggregate",
+								"ofType": null
+							}
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "cart_total",
+						"description": "execute function \"cart_total\" which returns \"money_result\"",
+						"args": [
+							{
+								"name": "distinct_on",
+								"description": "distinct select on columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "ENUM",
+											"name": "money_result_select_column",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "limit",
+								"description": "limit the number of rows returned",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "offset",
+								"description": "skip the first n rows. Use only with order_by",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "order_by",
+								"description": "sort the rows by one or more columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "INPUT_OBJECT",
+											"name": "money_result_order_by",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "where",
+								"description": "filter the rows returned",
+								"type": {
+									"kind": "INPUT_OBJECT",
+									"name": "money_result_bool_exp",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							}
+						],
+						"type": {
+							"kind": "NON_NULL",
+							"name": null,
+							"ofType": {
+								"kind": "LIST",
+								"name": null,
+								"ofType": {
+									"kind": "NON_NULL",
+									"name": null,
+									"ofType": {
+										"kind": "OBJECT",
+										"name": "money_result",
+										"ofType": null
+									}
+								}
+							}
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "money_result",
+						"description": "fetch data from the table: \"money_result\"",
+						"args": [
+							{
+								"name": "distinct_on",
+								"description": "distinct select on columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "ENUM",
+											"name": "money_result_select_column",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "limit",
+								"description": "limit the number of rows returned",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "offset",
+								"description": "skip the first n rows. Use only with order_by",
+								"type": {
+									"kind": "SCALAR",
+									"name": "Int",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "order_by",
+								"description": "sort the rows by one or more columns",
+								"type": {
+									"kind": "LIST",
+									"name": null,
+									"ofType": {
+										"kind": "NON_NULL",
+										"name": null,
+										"ofType": {
+											"kind": "INPUT_OBJECT",
+											"name": "money_result_order_by",
+											"ofType": null
+										}
+									}
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							},
+							{
+								"name": "where",
+								"description": "filter the rows returned",
+								"type": {
+									"kind": "INPUT_OBJECT",
+									"name": "money_result_bool_exp",
+									"ofType": null
+								},
+								"defaultValue": null,
+								"isDeprecated": false,
+								"deprecationReason": null
+							}
+						],
+						"type": {
+							"kind": "NON_NULL",
+							"name": null,
+							"ofType": {
+								"kind": "LIST",
+								"name": null,
+								"ofType": {
+									"kind": "NON_NULL",
+									"name": null,
+									"ofType": {
+										"kind": "OBJECT",
+										"name": "money_result",
+										"ofType": null
+									}
+								}
+							}
 						},
 						"isDeprecated": false,
 						"deprecationReason": null
@@ -6239,115 +6676,6 @@
 						"deprecationReason": null
 					},
 					{
-						"name": "cart_items",
-						"description": "A computed field, executes function \"user_cart_items\"",
-						"args": [
-							{
-								"name": "distinct_on",
-								"description": "distinct select on columns",
-								"type": {
-									"kind": "LIST",
-									"name": null,
-									"ofType": {
-										"kind": "NON_NULL",
-										"name": null,
-										"ofType": {
-											"kind": "ENUM",
-											"name": "products_select_column",
-											"ofType": null
-										}
-									}
-								},
-								"defaultValue": null,
-								"isDeprecated": false,
-								"deprecationReason": null
-							},
-							{
-								"name": "limit",
-								"description": "limit the number of rows returned",
-								"type": {
-									"kind": "SCALAR",
-									"name": "Int",
-									"ofType": null
-								},
-								"defaultValue": null,
-								"isDeprecated": false,
-								"deprecationReason": null
-							},
-							{
-								"name": "offset",
-								"description": "skip the first n rows. Use only with order_by",
-								"type": {
-									"kind": "SCALAR",
-									"name": "Int",
-									"ofType": null
-								},
-								"defaultValue": null,
-								"isDeprecated": false,
-								"deprecationReason": null
-							},
-							{
-								"name": "order_by",
-								"description": "sort the rows by one or more columns",
-								"type": {
-									"kind": "LIST",
-									"name": null,
-									"ofType": {
-										"kind": "NON_NULL",
-										"name": null,
-										"ofType": {
-											"kind": "INPUT_OBJECT",
-											"name": "products_order_by",
-											"ofType": null
-										}
-									}
-								},
-								"defaultValue": null,
-								"isDeprecated": false,
-								"deprecationReason": null
-							},
-							{
-								"name": "where",
-								"description": "filter the rows returned",
-								"type": {
-									"kind": "INPUT_OBJECT",
-									"name": "products_bool_exp",
-									"ofType": null
-								},
-								"defaultValue": null,
-								"isDeprecated": false,
-								"deprecationReason": null
-							}
-						],
-						"type": {
-							"kind": "LIST",
-							"name": null,
-							"ofType": {
-								"kind": "NON_NULL",
-								"name": null,
-								"ofType": {
-									"kind": "OBJECT",
-									"name": "products",
-									"ofType": null
-								}
-							}
-						},
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "cart_total",
-						"description": "A computed field, executes function \"user_cart_total\"",
-						"args": [],
-						"type": {
-							"kind": "SCALAR",
-							"name": "money",
-							"ofType": null
-						},
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
 						"name": "created_at",
 						"description": null,
 						"args": [],
@@ -6481,30 +6809,6 @@
 						"type": {
 							"kind": "INPUT_OBJECT",
 							"name": "cart_bool_exp",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "cart_items",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_bool_exp",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "cart_total",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "money_comparison_exp",
 							"ofType": null
 						},
 						"defaultValue": null,
@@ -6781,30 +7085,6 @@
 						"type": {
 							"kind": "INPUT_OBJECT",
 							"name": "cart_aggregate_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "cart_items_aggregate",
-						"description": null,
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "products_aggregate_order_by",
-							"ofType": null
-						},
-						"defaultValue": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "cart_total",
-						"description": null,
-						"type": {
-							"kind": "ENUM",
-							"name": "order_by",
 							"ofType": null
 						},
 						"defaultValue": null,

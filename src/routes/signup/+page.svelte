@@ -36,6 +36,11 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Storefront | Sign up</title>
+	<meta name="description" content="Sign up to Storefront for free! Powered by Amazon Amplify." />
+</svelte:head>
+
 <h1>Storefront</h1>
 
 <p class="max-w-[220px] leading-snug">

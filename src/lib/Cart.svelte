@@ -1,16 +1,13 @@
 <script lang="ts">
-	import { request } from 'graphql-request';
 	import { useQuery } from '@sveltestack/svelte-query';
-	import UserCart from '$lib/graphql/user_cart.graphql?raw';
-	import type { UserCartQuery } from '$lib/generated/graphql';
+	import type { CartQuery } from '$lib/generated/graphql';
+	import { cart as api } from '$lib/api/cart';
 
-	const endpoint = 'https://storefront.hasura.app/v1/graphql';
+	export let initialData: CartQuery;
+	export let user_id: string;
 
-	$: query = useQuery<UserCartQuery['users'], { message: string }>('cart', async () => {
-		const { users } = await request(endpoint, UserCart, undefined, {
-			'x-hasura-user-id': 'e457c102-0bca-4d74-976e-8985199133b6'
-		});
-		return users;
+	$: query = useQuery<CartQuery, { message: string }>('cart', async () => await api(user_id), {
+		initialData
 	});
 </script>
 
@@ -22,10 +19,17 @@
 		{:else if $query.status === 'error'}
 			<span>Error: {$query.error.message}</span>
 		{:else if $query.data}
-			<div>
-				{JSON.stringify($query.data)}
-			</div>
-			<div>{$query.isFetching ? 'Background Updating...' : ' '}</div>
+			{#each $query.data.cart_items as cart_item}
+				<p class="leading-loose">
+					{cart_item.carts_aggregate.aggregate?.count}x {cart_item.amount} = {cart_item.user_cart_sum}
+					<span>{cart_item.name}</span> <button>+</button><button>-</button>
+				</p>
+			{/each}
+			{#if $query.data.cart_total[0]}
+				<strong class="mt-6 block">Total: {$query.data.cart_total[0].result}</strong>
+			{:else}
+				<p>No items on you cart, go do some shopping!</p>
+			{/if}
 		{/if}
 	</div>
 </div>

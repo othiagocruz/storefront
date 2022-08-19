@@ -4,11 +4,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 const config = {
 	plugins: [sveltekit()],
 	define: {
-		'process.env': process.env
+		'process.env': process.env // env variables for vercel
 	},
 	resolve: {
 		alias: {
-			'./runtimeConfig': './runtimeConfig.browser'
+			'./runtimeConfig': './runtimeConfig.browser' // fixes amplify build error
 		}
 	}
 };

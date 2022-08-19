@@ -22,6 +22,11 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Storefront | Login</title>
+	<meta name="description" content="Login into your account" />
+</svelte:head>
+
 <h1>Storefront</h1>
 <form class="flex flex-col gap-4 max-w-screen-sm mx-auto" on:submit|preventDefault={signIn}>
 	<h2>Login to your account</h2>

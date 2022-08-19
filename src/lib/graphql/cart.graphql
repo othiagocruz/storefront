@@ -1,0 +1,16 @@
+query Cart {
+	cart_items(order_by: { carts_aggregate: { max: { created_at: desc } } }) {
+		amount
+		id
+		name
+		carts_aggregate {
+			aggregate {
+				count
+			}
+		}
+		user_cart_sum
+	}
+	cart_total {
+		result
+	}
+}

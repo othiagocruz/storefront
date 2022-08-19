@@ -1,5 +1,10 @@
 overwrite: true
 schema: 'https://storefront.hasura.app/v1/graphql'
+config:
+  scalars:
+    money: string
+    timestamptz: string
+    uuid: string
 documents: 'src/**/*.graphql'
 generates:
   src/lib/generated/graphql.ts:

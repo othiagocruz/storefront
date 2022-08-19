@@ -45,6 +45,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Storefront | Confirm your account</title>
+	<meta name="description" content="Confirm your account" />
+</svelte:head>
+
 <h1>Storefront</h1>
 <form class="flex flex-col gap-4 max-w-screen-sm mx-auto" on:submit|preventDefault={confirmSignUp}>
 	<h2>Enter the received code:</h2>

@@ -10,9 +10,9 @@ export type Scalars = {
 	Boolean: boolean;
 	Int: number;
 	Float: number;
-	money: any;
-	timestamptz: any;
-	uuid: any;
+	money: string;
+	timestamptz: string;
+	uuid: string;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
@@ -221,6 +221,31 @@ export type Money_Comparison_Exp = {
 	_nin?: InputMaybe<Array<Scalars['money']>>;
 };
 
+/** columns and relationships of "money_result" */
+export type Money_Result = {
+	__typename?: 'money_result';
+	result?: Maybe<Scalars['money']>;
+};
+
+/** Boolean expression to filter rows from the table "money_result". All fields are combined with a logical 'AND'. */
+export type Money_Result_Bool_Exp = {
+	_and?: InputMaybe<Array<Money_Result_Bool_Exp>>;
+	_not?: InputMaybe<Money_Result_Bool_Exp>;
+	_or?: InputMaybe<Array<Money_Result_Bool_Exp>>;
+	result?: InputMaybe<Money_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "money_result". */
+export type Money_Result_Order_By = {
+	result?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "money_result" */
+export enum Money_Result_Select_Column {
+	/** column name */
+	Result = 'result'
+}
+
 /** mutation root */
 export type Mutation_Root = {
 	__typename?: 'mutation_root';
@@ -362,7 +387,6 @@ export type ProductsCarts_AggregateArgs = {
 	where?: InputMaybe<Cart_Bool_Exp>;
 };
 
-/** aggregated selection of "products" */
 export type Products_Aggregate = {
 	__typename?: 'products_aggregate';
 	aggregate?: Maybe<Products_Aggregate_Fields>;
@@ -391,30 +415,10 @@ export type Products_Aggregate_FieldsCountArgs = {
 	distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "products" */
-export type Products_Aggregate_Order_By = {
-	avg?: InputMaybe<Products_Avg_Order_By>;
-	count?: InputMaybe<Order_By>;
-	max?: InputMaybe<Products_Max_Order_By>;
-	min?: InputMaybe<Products_Min_Order_By>;
-	stddev?: InputMaybe<Products_Stddev_Order_By>;
-	stddev_pop?: InputMaybe<Products_Stddev_Pop_Order_By>;
-	stddev_samp?: InputMaybe<Products_Stddev_Samp_Order_By>;
-	sum?: InputMaybe<Products_Sum_Order_By>;
-	var_pop?: InputMaybe<Products_Var_Pop_Order_By>;
-	var_samp?: InputMaybe<Products_Var_Samp_Order_By>;
-	variance?: InputMaybe<Products_Variance_Order_By>;
-};
-
 /** aggregate avg on columns */
 export type Products_Avg_Fields = {
 	__typename?: 'products_avg_fields';
 	amount?: Maybe<Scalars['Float']>;
-};
-
-/** order by avg() on columns of table "products" */
-export type Products_Avg_Order_By = {
-	amount?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "products". All fields are combined with a logical 'AND'. */
@@ -443,16 +447,6 @@ export type Products_Max_Fields = {
 	updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
-/** order by max() on columns of table "products" */
-export type Products_Max_Order_By = {
-	amount?: InputMaybe<Order_By>;
-	created_at?: InputMaybe<Order_By>;
-	id?: InputMaybe<Order_By>;
-	image?: InputMaybe<Order_By>;
-	name?: InputMaybe<Order_By>;
-	updated_at?: InputMaybe<Order_By>;
-};
-
 /** aggregate min on columns */
 export type Products_Min_Fields = {
 	__typename?: 'products_min_fields';
@@ -462,16 +456,6 @@ export type Products_Min_Fields = {
 	image?: Maybe<Scalars['String']>;
 	name?: Maybe<Scalars['String']>;
 	updated_at?: Maybe<Scalars['timestamptz']>;
-};
-
-/** order by min() on columns of table "products" */
-export type Products_Min_Order_By = {
-	amount?: InputMaybe<Order_By>;
-	created_at?: InputMaybe<Order_By>;
-	id?: InputMaybe<Order_By>;
-	image?: InputMaybe<Order_By>;
-	name?: InputMaybe<Order_By>;
-	updated_at?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "products". */
@@ -508,20 +492,10 @@ export type Products_Stddev_Fields = {
 	amount?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "products" */
-export type Products_Stddev_Order_By = {
-	amount?: InputMaybe<Order_By>;
-};
-
 /** aggregate stddev_pop on columns */
 export type Products_Stddev_Pop_Fields = {
 	__typename?: 'products_stddev_pop_fields';
 	amount?: Maybe<Scalars['Float']>;
-};
-
-/** order by stddev_pop() on columns of table "products" */
-export type Products_Stddev_Pop_Order_By = {
-	amount?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -530,20 +504,10 @@ export type Products_Stddev_Samp_Fields = {
 	amount?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "products" */
-export type Products_Stddev_Samp_Order_By = {
-	amount?: InputMaybe<Order_By>;
-};
-
 /** aggregate sum on columns */
 export type Products_Sum_Fields = {
 	__typename?: 'products_sum_fields';
 	amount?: Maybe<Scalars['money']>;
-};
-
-/** order by sum() on columns of table "products" */
-export type Products_Sum_Order_By = {
-	amount?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -552,31 +516,16 @@ export type Products_Var_Pop_Fields = {
 	amount?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "products" */
-export type Products_Var_Pop_Order_By = {
-	amount?: InputMaybe<Order_By>;
-};
-
 /** aggregate var_samp on columns */
 export type Products_Var_Samp_Fields = {
 	__typename?: 'products_var_samp_fields';
 	amount?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "products" */
-export type Products_Var_Samp_Order_By = {
-	amount?: InputMaybe<Order_By>;
-};
-
 /** aggregate variance on columns */
 export type Products_Variance_Fields = {
 	__typename?: 'products_variance_fields';
 	amount?: Maybe<Scalars['Float']>;
-};
-
-/** order by variance() on columns of table "products" */
-export type Products_Variance_Order_By = {
-	amount?: InputMaybe<Order_By>;
 };
 
 export type Query_Root = {
@@ -587,6 +536,14 @@ export type Query_Root = {
 	cart_aggregate: Cart_Aggregate;
 	/** fetch data from the table: "cart" using primary key columns */
 	cart_by_pk?: Maybe<Cart>;
+	/** execute function "cart_items" which returns "products" */
+	cart_items: Array<Products>;
+	/** execute function "cart_items" and query aggregates on result of table type "products" */
+	cart_items_aggregate: Products_Aggregate;
+	/** execute function "cart_total" which returns "money_result" */
+	cart_total: Array<Money_Result>;
+	/** fetch data from the table: "money_result" */
+	money_result: Array<Money_Result>;
 	/** fetch data from the table: "products" */
 	products: Array<Products>;
 	/** fetch aggregated fields from the table: "products" */
@@ -619,6 +576,38 @@ export type Query_RootCart_By_PkArgs = {
 	id: Scalars['uuid'];
 	product_id: Scalars['uuid'];
 	user_id: Scalars['uuid'];
+};
+
+export type Query_RootCart_ItemsArgs = {
+	distinct_on?: InputMaybe<Array<Products_Select_Column>>;
+	limit?: InputMaybe<Scalars['Int']>;
+	offset?: InputMaybe<Scalars['Int']>;
+	order_by?: InputMaybe<Array<Products_Order_By>>;
+	where?: InputMaybe<Products_Bool_Exp>;
+};
+
+export type Query_RootCart_Items_AggregateArgs = {
+	distinct_on?: InputMaybe<Array<Products_Select_Column>>;
+	limit?: InputMaybe<Scalars['Int']>;
+	offset?: InputMaybe<Scalars['Int']>;
+	order_by?: InputMaybe<Array<Products_Order_By>>;
+	where?: InputMaybe<Products_Bool_Exp>;
+};
+
+export type Query_RootCart_TotalArgs = {
+	distinct_on?: InputMaybe<Array<Money_Result_Select_Column>>;
+	limit?: InputMaybe<Scalars['Int']>;
+	offset?: InputMaybe<Scalars['Int']>;
+	order_by?: InputMaybe<Array<Money_Result_Order_By>>;
+	where?: InputMaybe<Money_Result_Bool_Exp>;
+};
+
+export type Query_RootMoney_ResultArgs = {
+	distinct_on?: InputMaybe<Array<Money_Result_Select_Column>>;
+	limit?: InputMaybe<Scalars['Int']>;
+	offset?: InputMaybe<Scalars['Int']>;
+	order_by?: InputMaybe<Array<Money_Result_Order_By>>;
+	where?: InputMaybe<Money_Result_Bool_Exp>;
 };
 
 export type Query_RootProductsArgs = {
@@ -661,6 +650,14 @@ export type Subscription_Root = {
 	cart_aggregate: Cart_Aggregate;
 	/** fetch data from the table: "cart" using primary key columns */
 	cart_by_pk?: Maybe<Cart>;
+	/** execute function "cart_items" which returns "products" */
+	cart_items: Array<Products>;
+	/** execute function "cart_items" and query aggregates on result of table type "products" */
+	cart_items_aggregate: Products_Aggregate;
+	/** execute function "cart_total" which returns "money_result" */
+	cart_total: Array<Money_Result>;
+	/** fetch data from the table: "money_result" */
+	money_result: Array<Money_Result>;
 	/** fetch data from the table: "products" */
 	products: Array<Products>;
 	/** fetch aggregated fields from the table: "products" */
@@ -693,6 +690,38 @@ export type Subscription_RootCart_By_PkArgs = {
 	id: Scalars['uuid'];
 	product_id: Scalars['uuid'];
 	user_id: Scalars['uuid'];
+};
+
+export type Subscription_RootCart_ItemsArgs = {
+	distinct_on?: InputMaybe<Array<Products_Select_Column>>;
+	limit?: InputMaybe<Scalars['Int']>;
+	offset?: InputMaybe<Scalars['Int']>;
+	order_by?: InputMaybe<Array<Products_Order_By>>;
+	where?: InputMaybe<Products_Bool_Exp>;
+};
+
+export type Subscription_RootCart_Items_AggregateArgs = {
+	distinct_on?: InputMaybe<Array<Products_Select_Column>>;
+	limit?: InputMaybe<Scalars['Int']>;
+	offset?: InputMaybe<Scalars['Int']>;
+	order_by?: InputMaybe<Array<Products_Order_By>>;
+	where?: InputMaybe<Products_Bool_Exp>;
+};
+
+export type Subscription_RootCart_TotalArgs = {
+	distinct_on?: InputMaybe<Array<Money_Result_Select_Column>>;
+	limit?: InputMaybe<Scalars['Int']>;
+	offset?: InputMaybe<Scalars['Int']>;
+	order_by?: InputMaybe<Array<Money_Result_Order_By>>;
+	where?: InputMaybe<Money_Result_Bool_Exp>;
+};
+
+export type Subscription_RootMoney_ResultArgs = {
+	distinct_on?: InputMaybe<Array<Money_Result_Select_Column>>;
+	limit?: InputMaybe<Scalars['Int']>;
+	offset?: InputMaybe<Scalars['Int']>;
+	order_by?: InputMaybe<Array<Money_Result_Order_By>>;
+	where?: InputMaybe<Money_Result_Bool_Exp>;
 };
 
 export type Subscription_RootProductsArgs = {
@@ -747,10 +776,6 @@ export type Users = {
 	cart: Array<Cart>;
 	/** An aggregate relationship */
 	cart_aggregate: Cart_Aggregate;
-	/** A computed field, executes function "user_cart_items" */
-	cart_items?: Maybe<Array<Products>>;
-	/** A computed field, executes function "user_cart_total" */
-	cart_total?: Maybe<Scalars['money']>;
 	created_at: Scalars['timestamptz'];
 	id: Scalars['uuid'];
 	name: Scalars['String'];
@@ -775,23 +800,12 @@ export type UsersCart_AggregateArgs = {
 	where?: InputMaybe<Cart_Bool_Exp>;
 };
 
-/** columns and relationships of "users" */
-export type UsersCart_ItemsArgs = {
-	distinct_on?: InputMaybe<Array<Products_Select_Column>>;
-	limit?: InputMaybe<Scalars['Int']>;
-	offset?: InputMaybe<Scalars['Int']>;
-	order_by?: InputMaybe<Array<Products_Order_By>>;
-	where?: InputMaybe<Products_Bool_Exp>;
-};
-
 /** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
 export type Users_Bool_Exp = {
 	_and?: InputMaybe<Array<Users_Bool_Exp>>;
 	_not?: InputMaybe<Users_Bool_Exp>;
 	_or?: InputMaybe<Array<Users_Bool_Exp>>;
 	cart?: InputMaybe<Cart_Bool_Exp>;
-	cart_items?: InputMaybe<Products_Bool_Exp>;
-	cart_total?: InputMaybe<Money_Comparison_Exp>;
 	created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
 	id?: InputMaybe<Uuid_Comparison_Exp>;
 	name?: InputMaybe<String_Comparison_Exp>;
@@ -836,8 +850,6 @@ export type Users_On_Conflict = {
 /** Ordering options when selecting data from "users". */
 export type Users_Order_By = {
 	cart_aggregate?: InputMaybe<Cart_Aggregate_Order_By>;
-	cart_items_aggregate?: InputMaybe<Products_Aggregate_Order_By>;
-	cart_total?: InputMaybe<Order_By>;
 	created_at?: InputMaybe<Order_By>;
 	id?: InputMaybe<Order_By>;
 	name?: InputMaybe<Order_By>;
@@ -891,30 +903,27 @@ export type Uuid_Comparison_Exp = {
 	_nin?: InputMaybe<Array<Scalars['uuid']>>;
 };
 
+export type CartQueryVariables = Exact<{ [key: string]: never }>;
+
+export type CartQuery = {
+	__typename?: 'query_root';
+	cart_items: Array<{
+		__typename?: 'products';
+		amount: string;
+		id: string;
+		name: string;
+		user_cart_sum?: string | null;
+		carts_aggregate: {
+			__typename?: 'cart_aggregate';
+			aggregate?: { __typename?: 'cart_aggregate_fields'; count: number } | null;
+		};
+	}>;
+	cart_total: Array<{ __typename?: 'money_result'; result?: string | null }>;
+};
+
 export type ProductsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type ProductsQuery = {
 	__typename?: 'query_root';
-	products: Array<{ __typename?: 'products'; id: any; name: string; image?: string | null }>;
-};
-
-export type UserCartQueryVariables = Exact<{ [key: string]: never }>;
-
-export type UserCartQuery = {
-	__typename?: 'query_root';
-	users: Array<{
-		__typename?: 'users';
-		cart_total?: any | null;
-		cart_items?: Array<{
-			__typename?: 'products';
-			amount: any;
-			id: any;
-			name: string;
-			user_cart_sum?: any | null;
-			carts_aggregate: {
-				__typename?: 'cart_aggregate';
-				aggregate?: { __typename?: 'cart_aggregate_fields'; count: number } | null;
-			};
-		}> | null;
-	}>;
+	products: Array<{ __typename?: 'products'; id: string; name: string; image?: string | null }>;
 };

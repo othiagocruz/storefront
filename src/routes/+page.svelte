@@ -14,6 +14,11 @@
 	}
 
 	export let data: PageData;
+	export let errors;
+
+	if (errors) {
+		console.log('errors: ', errors);
+	}
 </script>
 
 <h1>Storefront</h1>
