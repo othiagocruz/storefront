@@ -1,15 +1,21 @@
 <script lang="ts">
-	import { request } from 'graphql-request';
 	import { useQuery, useQueryClient } from '@sveltestack/svelte-query';
+	import { request } from 'graphql-request';
 	import ProductsQql from '$lib/graphql/products.graphql?raw';
 	import type { ProductsQuery } from '$lib/generated/graphql';
 	import { HASURA_GRAPHQL_ENDPOINT } from '$lib/env';
 
-	$: query = useQuery<ProductsQuery['products'], { message: string }>('products', async () => {
-		const { products } = await request(HASURA_GRAPHQL_ENDPOINT, ProductsQql);
+	export let initialData: ProductsQuery['products'];
 
-		return products;
-	});
+	$: query = useQuery<ProductsQuery['products'], { message: string }>(
+		'products',
+		async () => {
+			const { products } = await request(HASURA_GRAPHQL_ENDPOINT, ProductsQql);
+
+			return products;
+		},
+		{ initialData }
+	);
 
 	const client = useQueryClient();
 </script>

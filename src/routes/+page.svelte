@@ -1,7 +1,7 @@
 <script type="ts">
 	import { withSSRContext } from 'aws-amplify';
 	import Products from '$lib/Products.svelte';
-
+	import type { PageData } from './$types';
 	import { QueryClientProvider } from '@sveltestack/svelte-query';
 	const { Auth } = withSSRContext();
 
@@ -12,6 +12,8 @@
 			console.log('error signing out: ', error);
 		}
 	}
+
+	export let data: PageData;
 </script>
 
 <h1>Storefront</h1>
@@ -32,5 +34,5 @@
 </nav>
 
 <QueryClientProvider>
-	<Products />
+	<Products initialData={data.products} />
 </QueryClientProvider>
