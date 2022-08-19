@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
-    <meta name="viewport" content="width=device-width" />
-    %sveltekit.head%
-  </head>
-  <script>
-    const isBrowser = () => typeof window !== "undefined";
-    const isGlobal = () => typeof global !== "undefined";
-    var exports = {};
-    if (!isGlobal() && isBrowser()) {
-      var global = window;
-    }
-  </script>
-  <body>
-    <div>%sveltekit.body%</div>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		%sveltekit.head%
+	</head>
+	<script>
+		const isBrowser = () => typeof window !== 'undefined';
+		const isGlobal = () => typeof global !== 'undefined';
+		var exports = {};
+		if (!isGlobal() && isBrowser()) {
+			var global = window;
+		}
+	</script>
+	<body>
+		<div>%sveltekit.body%</div>
+	</body>
 </html>

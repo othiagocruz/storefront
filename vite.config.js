@@ -1,18 +1,16 @@
-import { sveltekit } from "@sveltejs/kit/vite";
-import adapter from "@sveltejs/adapter-vercel";
+import { sveltekit } from '@sveltejs/kit/vite';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-  adapter: adapter(),
-  define: {
-    "process.env": process.env
-  },
-  plugins: [sveltekit()],
-  resolve: {
-    alias: {
-      "./runtimeConfig": "./runtimeConfig.browser"
-    }
-  }
+	plugins: [sveltekit()],
+	define: {
+		'process.env': process.env
+	},
+	resolve: {
+		alias: {
+			'./runtimeConfig': './runtimeConfig.browser'
+		}
+	}
 };
 
 export default config;

@@ -1,0 +1,11 @@
+overwrite: true
+schema: 'https://storefront.hasura.app/v1/graphql'
+documents: 'src/**/*.graphql'
+generates:
+  src/lib/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'
