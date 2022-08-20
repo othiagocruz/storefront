@@ -3,6 +3,7 @@
 	import type { ProductsQuery } from '$lib/generated/graphql';
 	import { products as api } from '$lib/api/products';
 	import { enhance } from '$lib/form';
+	import { goto } from '$app/navigation';
 
 	export let initialData: ProductsQuery['products'];
 
@@ -28,11 +29,11 @@
 				{#each $query.data as product}
 					<form
 						class="mb-6 flex justify-center items-center flex-col"
-						action="/cart"
+						action="/cart/add"
 						method="post"
 						use:enhance={{
 							result: async () => {
-								window.location.href = '/cart';
+								goto('/cart');
 							}
 						}}
 					>
