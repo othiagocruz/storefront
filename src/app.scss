@@ -31,4 +31,8 @@
 	input[type='email'] {
 		@apply disabled:bg-gray-200;
 	}
+
+	strong {
+		@apply font-kepler font-bold;
+	}
 }

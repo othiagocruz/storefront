@@ -14,7 +14,7 @@
 		} else if (event === 'signOut') {
 			_username.set('');
 
-			goto('/auth/login');
+			goto('/login');
 		}
 	});
 </script>

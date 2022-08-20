@@ -3,5 +3,6 @@ query Products {
 		id
 		name
 		image
+		amount
 	}
 }

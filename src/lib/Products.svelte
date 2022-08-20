@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { useQuery, useQueryClient } from '@sveltestack/svelte-query';
+	import { useQuery } from '@sveltestack/svelte-query';
 	import type { ProductsQuery } from '$lib/generated/graphql';
 	import { products as api } from '$lib/api/products';
+	import { enhance } from '$lib/form';
 
 	export let initialData: ProductsQuery['products'];
 
@@ -13,8 +14,6 @@
 		},
 		{ initialData }
 	);
-
-	const client = useQueryClient();
 </script>
 
 <div class="mt-6">
@@ -25,19 +24,28 @@
 		{:else if $query.status === 'error'}
 			<span>Error: {$query.error.message}</span>
 		{:else if $query.data}
-			<div>
+			<div class="flex items-center justify-center gap-12">
 				{#each $query.data as product}
-					<p class="leading-loose">
-						<span
-							style={// We can use the queryCache here to show bold links for
-							// ones that are cached
-							client.getQueryData(['product', product.id])
-								? 'color: green; font-weight: bold; cursor: pointer;'
-								: 'cursor: pointer;'}
-						>
+					<form
+						class="mb-6 flex justify-center items-center flex-col"
+						action="/cart"
+						method="post"
+						use:enhance={{
+							result: async () => {
+								window.location.href = '/cart';
+							}
+						}}
+					>
+						<input type="hidden" name="id" value={product.id} />
+
+						<img loading="lazy" src={product.image} alt={product.name} width={120} height={80} />
+						<p class="text-lg leading-tight mt-6">
 							{product.name}
-						</span>
-					</p>
+						</p>
+						<strong class="text-3xl leading-tight block mb-2">{product.amount}</strong>
+
+						<button class="bg-black text-sm text-white p-2">Add to cart</button>
+					</form>
 				{/each}
 			</div>
 		{/if}

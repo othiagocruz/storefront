@@ -1,6 +1,7 @@
 query Cart {
 	cart_items(order_by: { carts_aggregate: { max: { created_at: desc } } }) {
 		amount
+		image
 		id
 		name
 		carts_aggregate {

@@ -57,8 +57,6 @@ export type Cart = {
 	product: Products;
 	product_id: Scalars['uuid'];
 	updated_at: Scalars['timestamptz'];
-	/** An object relationship */
-	user: Users;
 	user_id: Scalars['uuid'];
 };
 
@@ -90,13 +88,6 @@ export type Cart_Aggregate_Order_By = {
 	min?: InputMaybe<Cart_Min_Order_By>;
 };
 
-/** input type for inserting array relation for remote table "cart" */
-export type Cart_Arr_Rel_Insert_Input = {
-	data: Array<Cart_Insert_Input>;
-	/** upsert condition */
-	on_conflict?: InputMaybe<Cart_On_Conflict>;
-};
-
 /** Boolean expression to filter rows from the table "cart". All fields are combined with a logical 'AND'. */
 export type Cart_Bool_Exp = {
 	_and?: InputMaybe<Array<Cart_Bool_Exp>>;
@@ -107,7 +98,6 @@ export type Cart_Bool_Exp = {
 	product?: InputMaybe<Products_Bool_Exp>;
 	product_id?: InputMaybe<Uuid_Comparison_Exp>;
 	updated_at?: InputMaybe<Timestamptz_Comparison_Exp>;
-	user?: InputMaybe<Users_Bool_Exp>;
 	user_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
 
@@ -120,7 +110,6 @@ export enum Cart_Constraint {
 /** input type for inserting data into table "cart" */
 export type Cart_Insert_Input = {
 	product_id?: InputMaybe<Scalars['uuid']>;
-	user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
@@ -184,7 +173,6 @@ export type Cart_Order_By = {
 	product?: InputMaybe<Products_Order_By>;
 	product_id?: InputMaybe<Order_By>;
 	updated_at?: InputMaybe<Order_By>;
-	user?: InputMaybe<Users_Order_By>;
 	user_id?: InputMaybe<Order_By>;
 };
 
@@ -530,9 +518,9 @@ export type Products_Variance_Fields = {
 
 export type Query_Root = {
 	__typename?: 'query_root';
-	/** An array relationship */
+	/** fetch data from the table: "cart" */
 	cart: Array<Cart>;
-	/** An aggregate relationship */
+	/** fetch aggregated fields from the table: "cart" */
 	cart_aggregate: Cart_Aggregate;
 	/** fetch data from the table: "cart" using primary key columns */
 	cart_by_pk?: Maybe<Cart>;
@@ -644,9 +632,9 @@ export type Query_RootUsers_By_PkArgs = {
 
 export type Subscription_Root = {
 	__typename?: 'subscription_root';
-	/** An array relationship */
+	/** fetch data from the table: "cart" */
 	cart: Array<Cart>;
-	/** An aggregate relationship */
+	/** fetch aggregated fields from the table: "cart" */
 	cart_aggregate: Cart_Aggregate;
 	/** fetch data from the table: "cart" using primary key columns */
 	cart_by_pk?: Maybe<Cart>;
@@ -772,32 +760,10 @@ export type Timestamptz_Comparison_Exp = {
 /** columns and relationships of "users" */
 export type Users = {
 	__typename?: 'users';
-	/** An array relationship */
-	cart: Array<Cart>;
-	/** An aggregate relationship */
-	cart_aggregate: Cart_Aggregate;
 	created_at: Scalars['timestamptz'];
 	id: Scalars['uuid'];
 	name: Scalars['String'];
 	updated_at: Scalars['timestamptz'];
-};
-
-/** columns and relationships of "users" */
-export type UsersCartArgs = {
-	distinct_on?: InputMaybe<Array<Cart_Select_Column>>;
-	limit?: InputMaybe<Scalars['Int']>;
-	offset?: InputMaybe<Scalars['Int']>;
-	order_by?: InputMaybe<Array<Cart_Order_By>>;
-	where?: InputMaybe<Cart_Bool_Exp>;
-};
-
-/** columns and relationships of "users" */
-export type UsersCart_AggregateArgs = {
-	distinct_on?: InputMaybe<Array<Cart_Select_Column>>;
-	limit?: InputMaybe<Scalars['Int']>;
-	offset?: InputMaybe<Scalars['Int']>;
-	order_by?: InputMaybe<Array<Cart_Order_By>>;
-	where?: InputMaybe<Cart_Bool_Exp>;
 };
 
 /** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
@@ -805,7 +771,6 @@ export type Users_Bool_Exp = {
 	_and?: InputMaybe<Array<Users_Bool_Exp>>;
 	_not?: InputMaybe<Users_Bool_Exp>;
 	_or?: InputMaybe<Array<Users_Bool_Exp>>;
-	cart?: InputMaybe<Cart_Bool_Exp>;
 	created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
 	id?: InputMaybe<Uuid_Comparison_Exp>;
 	name?: InputMaybe<String_Comparison_Exp>;
@@ -820,7 +785,6 @@ export enum Users_Constraint {
 
 /** input type for inserting data into table "users" */
 export type Users_Insert_Input = {
-	cart?: InputMaybe<Cart_Arr_Rel_Insert_Input>;
 	name?: InputMaybe<Scalars['String']>;
 };
 
@@ -833,13 +797,6 @@ export type Users_Mutation_Response = {
 	returning: Array<Users>;
 };
 
-/** input type for inserting object relation for remote table "users" */
-export type Users_Obj_Rel_Insert_Input = {
-	data: Users_Insert_Input;
-	/** upsert condition */
-	on_conflict?: InputMaybe<Users_On_Conflict>;
-};
-
 /** on_conflict condition type for table "users" */
 export type Users_On_Conflict = {
 	constraint: Users_Constraint;
@@ -849,7 +806,6 @@ export type Users_On_Conflict = {
 
 /** Ordering options when selecting data from "users". */
 export type Users_Order_By = {
-	cart_aggregate?: InputMaybe<Cart_Aggregate_Order_By>;
 	created_at?: InputMaybe<Order_By>;
 	id?: InputMaybe<Order_By>;
 	name?: InputMaybe<Order_By>;
@@ -910,6 +866,7 @@ export type CartQuery = {
 	cart_items: Array<{
 		__typename?: 'products';
 		amount: string;
+		image?: string | null;
 		id: string;
 		name: string;
 		user_cart_sum?: string | null;
@@ -921,9 +878,24 @@ export type CartQuery = {
 	cart_total: Array<{ __typename?: 'money_result'; result?: string | null }>;
 };
 
+export type CartPostMutationVariables = Exact<{
+	product_id?: InputMaybe<Scalars['uuid']>;
+}>;
+
+export type CartPostMutation = {
+	__typename?: 'mutation_root';
+	insert_cart_one?: { __typename?: 'cart'; created_at: string } | null;
+};
+
 export type ProductsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type ProductsQuery = {
 	__typename?: 'query_root';
-	products: Array<{ __typename?: 'products'; id: string; name: string; image?: string | null }>;
+	products: Array<{
+		__typename?: 'products';
+		id: string;
+		name: string;
+		image?: string | null;
+		amount: string;
+	}>;
 };

@@ -1,0 +1,5 @@
+mutation CartPost($product_id: uuid) {
+	insert_cart_one(object: { product_id: $product_id }) {
+		created_at
+	}
+}
