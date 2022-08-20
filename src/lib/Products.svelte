@@ -15,6 +15,8 @@
 		},
 		{ initialData }
 	);
+
+	$: loading_id = '';
 </script>
 
 <div class="mt-6">
@@ -29,11 +31,16 @@
 				{#each $query.data as product}
 					<form
 						class="mb-6 flex justify-center items-center flex-col"
-						action="/cart/add"
+						action="/cart"
 						method="post"
 						use:enhance={{
+							pending: () => {
+								loading_id = product.id;
+							},
 							result: async () => {
-								goto('/cart');
+								window.location.href = '/cart';
+
+								loading_id = '';
 							}
 						}}
 					>
@@ -45,7 +52,23 @@
 						</p>
 						<strong class="text-3xl leading-tight block mb-2">{product.amount}</strong>
 
-						<button class="bg-black text-sm text-white p-2">Add to cart</button>
+						<button
+							disabled={loading_id === product.id}
+							class="bg-black disabled:bg-zinc-800 text-sm text-white p-2"
+						>
+							{#if loading_id === product.id}
+								<img
+									loading="lazy"
+									src="/three-dots.svg"
+									class="mx-4 my-2"
+									alt="Loading..."
+									width={24}
+									height={24}
+								/>
+							{:else}
+								Add to cart
+							{/if}
+						</button>
 					</form>
 				{/each}
 			</div>
