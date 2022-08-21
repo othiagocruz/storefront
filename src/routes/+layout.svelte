@@ -22,7 +22,6 @@
 <svelte:head>
 	<link rel="preload" as="style" href="https://use.typekit.net/sjb7trk.css" />
 	<link rel="stylesheet" href="https://use.typekit.net/sjb7trk.css" />
-	<title>storefront</title>
 </svelte:head>
 
 <main>

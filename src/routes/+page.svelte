@@ -21,6 +21,11 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Storefront | Home</title>
+	<meta name="description" content="SvelteKit Hasura shopping cart" />
+</svelte:head>
+
 <h1>Storefront</h1>
 <nav>
 	{#await Auth.currentAuthenticatedUser()}

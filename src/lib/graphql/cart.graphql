@@ -1,5 +1,5 @@
 query Cart {
-	cart_items(order_by: { carts_aggregate: { max: { created_at: desc } } }) {
+	cart_items {
 		amount
 		image
 		id
