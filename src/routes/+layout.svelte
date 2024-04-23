@@ -1,22 +1,6 @@
 <script type="ts" context="module">
 	import '../app.scss';
-	import { Amplify, Hub } from 'aws-amplify';
-	import { awsExports } from '$lib/env';
 	import { _username } from '$lib/stores';
-	import { goto } from '$app/navigation';
-
-	Amplify.configure({ ...awsExports, ssr: true });
-
-	Hub.listen('auth', ({ payload }) => {
-		const { event } = payload;
-		if (event === 'signIn') {
-			_username.set(payload.data.username);
-		} else if (event === 'signOut') {
-			_username.set('');
-
-			goto('/login');
-		}
-	});
 </script>
 
 <svelte:head>
@@ -27,3 +11,13 @@
 <main>
 	<slot />
 </main>
+
+<footer class="mt-16 leading-5">
+	Author: <a class="font-bold" href="https://twitter.com/othiagocruz" target="_blank"
+		>@othiagocruz</a
+	> <br />
+	Github:
+	<a class="font-bold" href="https://github.com/othiagocruz/storefront" target="_blank"
+		>github.com/othiagocruz/storefront</a
+	>
+</footer>

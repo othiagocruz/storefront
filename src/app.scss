@@ -2,7 +2,7 @@
 @tailwind components;
 @layer base {
 	#curtain {
-		@apply absolute left-0 transition-transform -translate-y-full ease-linear 
+		@apply absolute left-0 transition-transform -translate-y-full ease-linear
            duration-1000 origin-top bg-black top-0 w-full h-full;
 	}
 	h1 {
@@ -18,10 +18,10 @@
 
 	nav {
 		@apply flex flex-row items-center justify-center gap-6;
-		a {
-			@apply hover:text-orange-500 hover:underline;
-		}
 	}
+	a {
+    	@apply hover:text-orange-500 hover:underline;
+    }
 }
 @tailwind utilities;
 
