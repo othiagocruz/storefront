@@ -4,6 +4,10 @@
 
 <ul class="text-left list-disc p-16 leading-5">
 	<li class="mb-2">
+		~2024: attempted a fix on vercel caching but this strategy used on sveltekit predates it so new
+		products are not SSR rendered, need to refactor it to work.
+	</li>
+	<li class="mb-2">
 		~2024: removed aws amplify shit as I accidentaly mailed someone I should not and got reported
 		for phishing. (sorry cousin lol)
 	</li>
