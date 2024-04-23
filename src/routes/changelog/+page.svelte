@@ -2,9 +2,9 @@
 
 <p class="font-bold my-8">Changelog:</p>
 
-<ul class="text-left list-disc p-16 leading-5">
+<ul class="text-left list-disc px-16 leading-5">
 	<li class="mb-2">
-		~2024: attempted a fix on vercel caching but this strategy used on sveltekit predates it so new
+		~2024: attempted a fix on vercel caching but the strategy used on sveltekit predates it so new
 		products are not SSR rendered, need to refactor it to work.
 	</li>
 	<li class="mb-2">

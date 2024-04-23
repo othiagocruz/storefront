@@ -13,9 +13,6 @@
 </main>
 
 <footer class="mt-16 leading-5">
-	Author: <a class="font-bold" href="https://twitter.com/othiagocruz" target="_blank"
-		>@othiagocruz</a
-	> <br />
 	Github:
 	<a class="font-bold" href="https://github.com/othiagocruz/storefront" target="_blank"
 		>github.com/othiagocruz/storefront</a
